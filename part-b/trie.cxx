@@ -33,7 +33,7 @@ size_t trie::output_matches(string const& pattern, OutIter&& out) const
         }
         else if (curchar == '?')
         {
-          for (auto a: node.second->children)
+          for (auto d = node.second; d != nullptr; ++d)
           {
             bfs.emplace (node.first + child->first, child->second);
           }
